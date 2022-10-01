@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-api1
+spec:
+  containers:
+    - name: my-api1
+      image:  myapi1 
+      imagePullPolicy: Never
+      ports:
+        - containerPort: 80
+        

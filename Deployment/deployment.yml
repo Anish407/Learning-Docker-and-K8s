@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-api1-m
+  labels:
+     myapp: my-api1
+spec:
+  replicas: 2
+  selector:
+     matchLabels:
+        myapp: my-api1
+  template:
+    metadata:
+      labels:
+        myapp: my-api1
+    spec:
+      containers:
+      - name: my-api1-deployment
+        image: myapi1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            memory: "256Mi" #128Mb
+            cpu: "400m" #200 m cpu (.2 cpu or 20% of the cpu)
